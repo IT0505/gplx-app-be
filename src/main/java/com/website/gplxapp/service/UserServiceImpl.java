@@ -32,6 +32,7 @@ public class UserServiceImpl implements UserService{
         String hashPass = BCrypt.hashpw(userObj.get("password").toString(), BCrypt.gensalt(12));
         User newUser = new User(userObj.get("username").toString(), hashPass);
         userRepository.save(newUser);
-        return 1;
+        User lastUser = userRepository.getByUsername(newUser.getUsername());
+        return lastUser.getId();
     }
 }
