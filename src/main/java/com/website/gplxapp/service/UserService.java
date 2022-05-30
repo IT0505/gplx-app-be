@@ -1,9 +1,10 @@
 package com.website.gplxapp.service;
 
-import com.website.gplxapp.model.User;
+import org.json.simple.JSONObject;
 
 import java.util.List;
 
 public interface UserService {
-    public List<User> getAllUser();
+    public Integer login(JSONObject userObj);
+    public Integer register(JSONObject userObj);
 }

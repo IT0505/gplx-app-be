@@ -1,13 +1,16 @@
 package com.website.gplxapp.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.website.gplxapp.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
 public class User {
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
     private String username;
     private String password;
@@ -15,8 +18,7 @@ public class User {
     public User() {
     }
 
-    public User(Integer id, String username, String password) {
-        this.id = id;
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
     }

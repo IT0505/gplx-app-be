@@ -94,4 +94,5 @@ public class QuestDetail {
     public void setCorrect(Integer correct) {
         this.correct = correct;
     }
+
 }
