@@ -31,8 +31,7 @@ public class ReviewServiceImpl implements ReviewService{
         List<Integer> ids = Global.formatStringToListID(listQuestStr);
         List<QuestDetail> tempList = questDetailRepository.findAllById(ids);
 
-        JSONArray listQuest = Global.formatListQuestion(tempList);
-        return listQuest;
+        return Global.formatListQuestion(tempList);
     }
 
     @Override
