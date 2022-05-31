@@ -1,13 +1,12 @@
 package com.website.gplxapp.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "review")
 public class Review {
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
     private Integer user_id;
     private String list_quest;
@@ -15,8 +14,7 @@ public class Review {
     public Review() {
     }
 
-    public Review(Integer id, Integer user_id, String list_quest) {
-        this.id = id;
+    public Review(Integer user_id, String list_quest) {
         this.user_id = user_id;
         this.list_quest = list_quest;
     }

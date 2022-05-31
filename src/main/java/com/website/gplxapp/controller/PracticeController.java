@@ -14,7 +14,7 @@ public class PracticeController {
     PracticeService practiceService;
 
     @GetMapping("/get-list-question")
-    private JSONArray getListQuestion(@RequestParam(required = true) String id) {
+    private JSONArray getListQuestion(@RequestParam String id) {
         return practiceService.getListQuestion(id);
     }
 }
