@@ -26,6 +26,11 @@ public class ReviewServiceImpl implements ReviewService{
 
     public JSONArray getListQuestion(String userID){
         Review review = reviewRepository.getByUserId(userID);
+
+        if(review == null){
+            return null;
+        }
+
         String listQuestStr = review.getList_quest();
 
         List<Integer> ids = Global.formatStringToListID(listQuestStr);

@@ -17,12 +17,12 @@ public class UserController {
     UserService userService;
 
     @PostMapping("/login")
-    private Integer login(@RequestBody JSONObject userObj) {
+    private JSONObject login(@RequestBody JSONObject userObj) {
         return userService.login(userObj);
     }
 
     @PostMapping("/register")
-    private Integer register(@RequestBody JSONObject userObj) {
+    private JSONObject register(@RequestBody JSONObject userObj) {
         return userService.register(userObj);
     }
 }

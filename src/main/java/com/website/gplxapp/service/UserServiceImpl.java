@@ -14,25 +14,32 @@ public class UserServiceImpl implements UserService{
     UserRepository userRepository;
 
     @Override
-    public Integer login(JSONObject userObj) {
+    public JSONObject login(JSONObject userObj) {
         User user = userRepository.getByUsername(userObj.get("username").toString());
         if(user != null) {
-            if(BCrypt.checkpw(userObj.get("password").toString(), user.getPassword()))
-                return user.getId();
+            if(BCrypt.checkpw(userObj.get("password").toString(), user.getPassword())){
+                JSONObject result = new JSONObject();
+                result.put("username", user.getUsername());
+                result.put("id", user.getId());
+                return result;
+            }
         }
-        return -1;
+        return null;
     }
 
     @Override
-    public Integer register(JSONObject userObj) {
+    public JSONObject register(JSONObject userObj) {
         User user = userRepository.getByUsername(userObj.get("username").toString());
         if(user != null) {
-            return -1;
+            return null;
         }
         String hashPass = BCrypt.hashpw(userObj.get("password").toString(), BCrypt.gensalt(12));
         User newUser = new User(userObj.get("username").toString(), hashPass);
         userRepository.save(newUser);
         User lastUser = userRepository.getByUsername(newUser.getUsername());
-        return lastUser.getId();
+        JSONObject result = new JSONObject();
+        result.put("username", lastUser.getUsername());
+        result.put("id", lastUser.getId());
+        return result;
     }
 }
