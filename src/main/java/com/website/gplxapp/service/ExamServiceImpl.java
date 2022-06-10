@@ -47,6 +47,9 @@ public class ExamServiceImpl implements ExamService{
 
     @Override
     public Integer saveExamScore(JSONObject examResult) {
+        if(examResult.get("user_id") == null)
+            return -1;
+
         Integer user_id = Integer.parseInt(examResult.get("user_id").toString());
         Integer exam_template_id = Integer.parseInt(examResult.get("exam_template_id").toString());
         Integer score = Integer.parseInt(examResult.get("score").toString());
