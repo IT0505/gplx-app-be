@@ -4,7 +4,16 @@ This is a starter template for [Learn Next.js](https://nextjs.org/learn).
 
 ## About our website 👋
 This website contains 200 multiple choice questions about traffic laws to help you practice, do sample test to prepare for your A1 driver license.  
-The website currently only have questions for A1 driver license, we will update more questions for A2, B1, B2 license.  
+The website currently only have questions for A1 driver license, we will update more questions for A2, B1, B2 license.
+### Some images of our project 🖼️
+> **Home page**  
+>   <img src="src/main/resources/img/Homepage.PNG" width="700">
+
+> **Exam page**  
+>   <img src="src/main/resources/img/Exam.PNG" width="700">
+
+> **Choose group of question page**  
+>   <img src="src/main/resources/img/ChooseGroup.PNG" width="700">
 
 ## This repository is just Backend of our website.
 You need our [Frontend](https://github.com/IT0505/gplx-app) repository to run full website on localhost.
